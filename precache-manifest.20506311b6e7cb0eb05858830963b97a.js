@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1568f283b91d2e745df21a391ded377c",
+    "revision": "db51aeac8577d005f37e3e4dfc50b191",
     "url": "/cforonda.github.io/lets-watch/index.html"
   },
   {
-    "revision": "3ac2ae6323240ad815c4",
-    "url": "/cforonda.github.io/lets-watch/static/css/main.523f09c5.chunk.css"
+    "revision": "f2b1e5843c2f3b624fab",
+    "url": "/cforonda.github.io/lets-watch/static/css/main.c7446496.chunk.css"
   },
   {
     "revision": "44557d959d96510cf5fb",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cforonda.github.io/lets-watch/static/js/2.2357ea90.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3ac2ae6323240ad815c4",
-    "url": "/cforonda.github.io/lets-watch/static/js/main.d25960bb.chunk.js"
+    "revision": "f2b1e5843c2f3b624fab",
+    "url": "/cforonda.github.io/lets-watch/static/js/main.5930efdf.chunk.js"
   },
   {
     "revision": "bca1c861ca10be67dd6d",
