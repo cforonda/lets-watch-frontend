@@ -1,10 +1,13 @@
 import React from 'react';
 import '../../assets/App/App.css';
+import Screen from '../Screen';
+import { Route } from 'react-router-dom';
+
 
 function App() {
   return (
     <div className="App">
-     <h1>This is a React App</h1>
+      <Route exact path={`/`} render={ (routerProps) => < Screen routerProps={routerProps} />} />  
     </div>
   );
 }
