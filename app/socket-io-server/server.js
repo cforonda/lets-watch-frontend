@@ -12,6 +12,26 @@ const server = http.createServer(app);
 
 const io = socketIo(server); // < Interesting!
 
-const getApiAndEmit = "TODO";
+let interval;
 
-console.log('HEYO');
+
+const getApiAndEmit = socket => {
+    const response = new Date();
+    // Emitting a new message. Will be consumed by the client
+    socket.emit("FromAPI", response);
+};
+
+
+io.on("connection", (socket) => {
+  console.log("New client connected");
+  if (interval) {
+    clearInterval(interval);
+  }
+  interval = setInterval(() => getApiAndEmit(socket), 1000);
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+    clearInterval(interval);
+  });
+});
+
+server.listen(port, () => console.log(`Listening on port ${port}`));
