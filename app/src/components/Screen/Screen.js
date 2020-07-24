@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
+import YTPlayer from "../YTPlayer/YTPlayer";
 
 export default function Screen( { routerProps }) {
 
     const [response, setResponse] = useState("");
 
-    const API_ENDPOINT = "https://frozen-plains-16075.herokuapp.com/";
+    const API_ENDPOINT = "https://lets-watch-backend.herokuapp.com/";
 
     console.log(API_ENDPOINT);
 
@@ -17,8 +18,11 @@ export default function Screen( { routerProps }) {
     }, []);
 
     return (
-        <p>
-            It's <time dateTime={response}>{response}</time>
-        </p>
+        <div>
+            <p>
+                It's <time dateTime={response}>{response}</time>
+            </p>
+            <YTPlayer id="Qll7IHN0I4Q"/>
+        </div>
     )
 }
