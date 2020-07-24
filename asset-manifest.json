@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/lets-watch-ui/static/css/main.c7446496.chunk.css",
-    "main.js": "/lets-watch-ui/static/js/main.0d80b77d.chunk.js",
-    "main.js.map": "/lets-watch-ui/static/js/main.0d80b77d.chunk.js.map",
-    "runtime-main.js": "/lets-watch-ui/static/js/runtime-main.fb848fbe.js",
-    "runtime-main.js.map": "/lets-watch-ui/static/js/runtime-main.fb848fbe.js.map",
-    "static/js/2.ff14245b.chunk.js": "/lets-watch-ui/static/js/2.ff14245b.chunk.js",
-    "static/js/2.ff14245b.chunk.js.map": "/lets-watch-ui/static/js/2.ff14245b.chunk.js.map",
-    "index.html": "/lets-watch-ui/index.html",
-    "precache-manifest.856f738a1046a9eba487e3bf6ea97d0e.js": "/lets-watch-ui/precache-manifest.856f738a1046a9eba487e3bf6ea97d0e.js",
-    "service-worker.js": "/lets-watch-ui/service-worker.js",
-    "static/css/main.c7446496.chunk.css.map": "/lets-watch-ui/static/css/main.c7446496.chunk.css.map",
-    "static/js/2.ff14245b.chunk.js.LICENSE.txt": "/lets-watch-ui/static/js/2.ff14245b.chunk.js.LICENSE.txt"
+    "main.css": "/lets-watch-frontend/static/css/main.c7446496.chunk.css",
+    "main.js": "/lets-watch-frontend/static/js/main.8e3789dd.chunk.js",
+    "main.js.map": "/lets-watch-frontend/static/js/main.8e3789dd.chunk.js.map",
+    "runtime-main.js": "/lets-watch-frontend/static/js/runtime-main.acdfff8d.js",
+    "runtime-main.js.map": "/lets-watch-frontend/static/js/runtime-main.acdfff8d.js.map",
+    "static/js/2.38ff717f.chunk.js": "/lets-watch-frontend/static/js/2.38ff717f.chunk.js",
+    "static/js/2.38ff717f.chunk.js.map": "/lets-watch-frontend/static/js/2.38ff717f.chunk.js.map",
+    "index.html": "/lets-watch-frontend/index.html",
+    "precache-manifest.2b53e7ce4dd9f6cec55bc010de4579c7.js": "/lets-watch-frontend/precache-manifest.2b53e7ce4dd9f6cec55bc010de4579c7.js",
+    "service-worker.js": "/lets-watch-frontend/service-worker.js",
+    "static/css/main.c7446496.chunk.css.map": "/lets-watch-frontend/static/css/main.c7446496.chunk.css.map",
+    "static/js/2.38ff717f.chunk.js.LICENSE.txt": "/lets-watch-frontend/static/js/2.38ff717f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.fb848fbe.js",
-    "static/js/2.ff14245b.chunk.js",
+    "static/js/runtime-main.acdfff8d.js",
+    "static/js/2.38ff717f.chunk.js",
     "static/css/main.c7446496.chunk.css",
-    "static/js/main.0d80b77d.chunk.js"
+    "static/js/main.8e3789dd.chunk.js"
   ]
 }
