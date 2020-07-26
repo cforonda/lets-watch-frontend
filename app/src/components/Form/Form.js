@@ -49,7 +49,8 @@ export default function Form({callback = fnc => fnc}) {
                 <Button 
                     variant="contained"
                     style={buttonStyle}
-                    type="submit"> Submit </Button>
+                    color="primary"
+                    type="submit"><b>Submit</b></Button>
             </form>
         </div>
     )

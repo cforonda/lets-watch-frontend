@@ -20,6 +20,12 @@ export default function Screen( { routerProps }) {
     const { socket, socketRoom, updateSocketRoom, socketNickname,
         updateSocketNickname } = useSocket();
 
+    const buttonStyle = {
+        "padding": "auto",
+        "margin": "10px",
+        "height": "50px"
+    }
+
     useEffect(() => {
         
         setInterval(() => {
@@ -45,7 +51,10 @@ export default function Screen( { routerProps }) {
 
     const youtubeVideoCallback = (response) => {
         var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-        setVideoId(response.match(regExp)[7]);
+
+        if(response != "") {
+            setVideoId(response.match(regExp)[7]);
+        }
     };
     
     const handleGetNickname = () => {
@@ -67,14 +76,19 @@ export default function Screen( { routerProps }) {
             <br />
             
             <Button variant="contained"
-                    value='Get Nickname' 
+                    value='Get Nickname'
+                    color="primary"
+                    style={buttonStyle}
                     onClick={handleGetNickname}>
-                Get Nickname
+                <b>Get Nickname</b>
             </Button>
+
             <Button variant="contained"
                     value='Get Room Name' 
+                    color="primary"
+                    style={buttonStyle}
                     onClick={handleGetRoomName}>
-                Get Room Name
+                <b>Get Room Name</b>
             </Button>
 
             <br /><br />
