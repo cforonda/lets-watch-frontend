@@ -5,23 +5,22 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import '../../assets/Screen/Screen.css';
+import {useSocket} from '../../hooks/useSocket';
 
 const dotenv = require('dotenv').config();
 
 export default function Screen( { routerProps }) {
-    const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || "https://lets-watch-backend.herokuapp.com/";
 
     const [numClients, setNumClients] = useState();
     const [videoId, setVideoId] = useState("");
 
     const updateVideoId = text => setVideoId(text);
     const getVideoId = (event) => updateVideoId(event.target.value);
-
-    console.log(API_ENDPOINT);
+    const { socket, socketRoom, updateSocketRoom, socketNickname,
+        updateSocketNickname } = useSocket();
 
     useEffect(() => {
-        const socket = socketIOClient(API_ENDPOINT);
-
+        
         setInterval(() => {
             socket.emit('getNumClients');
         }, 500);
@@ -30,8 +29,24 @@ export default function Screen( { routerProps }) {
             console.log(data.message);
             setNumClients(data.numClients);
         })
+
+        socket.on('user-joined-room', response => {
+            console.log(response.message);
+        });
+
+        socket.on('user-joined-room-failed', response => {
+            console.log(response.message);
+        });
         
     }, []);
+
+    const handleGetNickname = () => {
+        console.log(`Hello ${socketNickname}!`);
+    }
+
+    const handleGetRoomName = () => {
+        console.log(`Hello ${socketNickname}, you are currently in room: ${socketRoom}`);
+    }
 
     return (
         <div className='screen'>
@@ -50,6 +65,13 @@ export default function Screen( { routerProps }) {
                 :
                 null
             }
+
+            <button value='Get Nickname' onClick={handleGetNickname}>
+                Get Nickname
+            </button>
+            <button value='Get Room Name' onClick={handleGetRoomName}>
+                Get Room Name
+            </button>
         </div>
     )
 }
