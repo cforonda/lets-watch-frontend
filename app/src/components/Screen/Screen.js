@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
 import YTPlayer from "../YTPlayer/YTPlayer";
+import '../../assets/Screen/Screen.css';
+
 const dotenv = require('dotenv').config();
 
 
@@ -20,7 +22,7 @@ export default function Screen( { routerProps }) {
     }, []);
 
     return (
-        <div>
+        <div className='screen'>
             <p>
                 It's <time dateTime={response}>{response}</time>
             </p>
