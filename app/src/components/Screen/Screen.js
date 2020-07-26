@@ -7,25 +7,30 @@ const dotenv = require('dotenv').config();
 
 
 export default function Screen( { routerProps }) {
-
-    const [response, setResponse] = useState("");
-
     const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || "https://lets-watch-backend.herokuapp.com/";
+
+    const [isFirstConnect, setIsFirstConnect] = useState(true);
+    const [numClients, setNumClients] = useState();
 
     console.log(API_ENDPOINT);
 
     useEffect(() => {
         const socket = socketIOClient(API_ENDPOINT);
-        socket.on("FromAPI", data => {
-            setResponse(data);
-        })
+
+        setInterval(() => {
+            socket.emit('getNumClients');
+        }, 500);
+
+        socket.on('newclientconnect', data => {
+            console.log('new person connected!');
+            setNumClients(data.numClients);
+         });
+        
     }, []);
 
     return (
         <div className='screen'>
-            <p>
-                It's <time dateTime={response}>{response}</time>
-            </p>
+            numClients: {numClients}
             <YTPlayer id="Qll7IHN0I4Q"/>
         </div>
     )
