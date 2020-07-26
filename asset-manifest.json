@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/lets-watch-frontend/static/css/main.804f7b68.chunk.css",
-    "main.js": "/lets-watch-frontend/static/js/main.5b220c03.chunk.js",
-    "main.js.map": "/lets-watch-frontend/static/js/main.5b220c03.chunk.js.map",
+    "main.js": "/lets-watch-frontend/static/js/main.9cadaf7a.chunk.js",
+    "main.js.map": "/lets-watch-frontend/static/js/main.9cadaf7a.chunk.js.map",
     "runtime-main.js": "/lets-watch-frontend/static/js/runtime-main.acdfff8d.js",
     "runtime-main.js.map": "/lets-watch-frontend/static/js/runtime-main.acdfff8d.js.map",
-    "static/js/2.663b9a27.chunk.js": "/lets-watch-frontend/static/js/2.663b9a27.chunk.js",
-    "static/js/2.663b9a27.chunk.js.map": "/lets-watch-frontend/static/js/2.663b9a27.chunk.js.map",
+    "static/js/2.0e125a9e.chunk.js": "/lets-watch-frontend/static/js/2.0e125a9e.chunk.js",
+    "static/js/2.0e125a9e.chunk.js.map": "/lets-watch-frontend/static/js/2.0e125a9e.chunk.js.map",
     "index.html": "/lets-watch-frontend/index.html",
-    "precache-manifest.11bee9e9f947db353c40dc88e340897f.js": "/lets-watch-frontend/precache-manifest.11bee9e9f947db353c40dc88e340897f.js",
+    "precache-manifest.597d7da080a34e42ba23aa4d974e6fbb.js": "/lets-watch-frontend/precache-manifest.597d7da080a34e42ba23aa4d974e6fbb.js",
     "service-worker.js": "/lets-watch-frontend/service-worker.js",
     "static/css/main.804f7b68.chunk.css.map": "/lets-watch-frontend/static/css/main.804f7b68.chunk.css.map",
-    "static/js/2.663b9a27.chunk.js.LICENSE.txt": "/lets-watch-frontend/static/js/2.663b9a27.chunk.js.LICENSE.txt"
+    "static/js/2.0e125a9e.chunk.js.LICENSE.txt": "/lets-watch-frontend/static/js/2.0e125a9e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.acdfff8d.js",
-    "static/js/2.663b9a27.chunk.js",
+    "static/js/2.0e125a9e.chunk.js",
     "static/css/main.804f7b68.chunk.css",
-    "static/js/main.5b220c03.chunk.js"
+    "static/js/main.9cadaf7a.chunk.js"
   ]
 }
