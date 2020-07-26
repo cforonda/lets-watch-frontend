@@ -11,12 +11,11 @@ import {useSocket} from '../../hooks/useSocket';
 const dotenv = require('dotenv').config();
 
 export default function Screen( { routerProps }) {
-
+    // setup hooks
     const [numClients, setNumClients] = useState();
     const [videoId, setVideoId] = useState("");
 
     const updateVideoId = text => setVideoId(text);
-    const getVideoId = (event) => updateVideoId(event.target.value);
     const { socket, socketRoom, updateSocketRoom, socketNickname,
         updateSocketNickname } = useSocket();
 
@@ -67,9 +66,10 @@ export default function Screen( { routerProps }) {
 
     return (
         <div className='screen'>
-            {numClients ? <Typography variant="h6">{numClients} users are currently watching</Typography> 
-            :
-            <Typography variant="h6">1 user is currently watching</Typography>}
+            { numClients ? 
+                <Typography variant="h6">{numClients} users are currently watching</Typography> 
+                :
+                <Typography variant="h6">1 user is currently watching</Typography> }
 
             <br />
             <Form callback={youtubeVideoCallback} />
