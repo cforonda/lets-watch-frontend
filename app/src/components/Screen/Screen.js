@@ -27,7 +27,9 @@ export default function Screen( { routerProps }) {
         }, 500);
 
         socket.on('updateClients', data => {
-            console.log(data.message);
+            if(data.message) {
+                console.log(data.message);
+            }
             setNumClients(data.numClients);
         })
 
