@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import socketIOClient from 'socket.io-client';
-import YTPlayer from '../YTPlayer/YTPlayer';
-import TextField from '@material-ui/core/TextField';
+import YTPlayer from '../YTPlayer/';
+import Form from '../Form/';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+
 import '../../assets/Screen/Screen.css';
 
 const dotenv = require('dotenv').config();
@@ -13,9 +13,6 @@ export default function Screen( { routerProps }) {
 
     const [numClients, setNumClients] = useState();
     const [videoId, setVideoId] = useState("");
-
-    const updateVideoId = text => setVideoId(text);
-    const getVideoId = (event) => updateVideoId(event.target.value);
 
     console.log(API_ENDPOINT);
 
@@ -33,18 +30,21 @@ export default function Screen( { routerProps }) {
         
     }, []);
 
+    const youtubeVideoCallback = (response) => {
+        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+        setVideoId(response.match(regExp)[7]);
+    };
+
     return (
         <div className='screen'>
             {numClients ? <Typography variant="h6">{numClients} users are currently watching</Typography> 
             :
             <Typography variant="h6">1 user is currently watching</Typography>}
-            <br />
 
-            <TextField id="standard-basic" type="text" value={videoId} label="Youtube Video Id" onChange={getVideoId} required />
+            <br />
+            <Form callback={youtubeVideoCallback} />
+            <br />
             
-            <br />
-
-            <br />
             {
                 videoId ? <YTPlayer id={videoId} />
                 :
