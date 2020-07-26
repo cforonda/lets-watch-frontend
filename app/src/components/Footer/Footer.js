@@ -4,7 +4,7 @@ import '../../assets/Footer/Footer.css';
 export default function Footer(){
     return (
         <footer>
-            Let's Watch - Created by Stephen White and Champ Foronda &copy;{new Date().getFullYear()}
+            Let's Watch &copy; {new Date().getFullYear()} - Created by Stephen White &amp; Champ Foronda
         </footer>
     )
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
 import YTPlayer from "../YTPlayer/YTPlayer";
+import Typography from "@material-ui/core/Typography";
 import '../../assets/Screen/Screen.css';
 
 const dotenv = require('dotenv').config();
@@ -29,7 +30,10 @@ export default function Screen( { routerProps }) {
 
     return (
         <div className='screen'>
-            {numClients ? <>numClients: {numClients}</> : "numClients: 1"}
+            {numClients ? <Typography variant="h6">{numClients} users are currently watching</Typography> 
+            :
+            <Typography variant="h6">1 user is currently watching</Typography>}
+            <br /><br />
             <YTPlayer id="Qll7IHN0I4Q"/>
         </div>
     )
