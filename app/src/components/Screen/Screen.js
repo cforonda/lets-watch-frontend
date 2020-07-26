@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import socketIOClient from 'socket.io-client';
 import YTPlayer from '../YTPlayer/';
 import Form from '../Form/';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import '../../assets/Screen/Screen.css';
@@ -18,6 +19,12 @@ export default function Screen( { routerProps }) {
     const getVideoId = (event) => updateVideoId(event.target.value);
     const { socket, socketRoom, updateSocketRoom, socketNickname,
         updateSocketNickname } = useSocket();
+
+    const buttonStyle = {
+        "padding": "auto",
+        "margin": "10px",
+        "height": "50px"
+    }
 
     useEffect(() => {
         
@@ -44,7 +51,10 @@ export default function Screen( { routerProps }) {
 
     const youtubeVideoCallback = (response) => {
         var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-        setVideoId(response.match(regExp)[7]);
+
+        if(response != "") {
+            setVideoId(response.match(regExp)[7]);
+        }
     };
     
     const handleGetNickname = () => {
@@ -65,15 +75,24 @@ export default function Screen( { routerProps }) {
             <Form callback={youtubeVideoCallback} />
             <br />
             
-            <button value='Get Nickname' onClick={handleGetNickname}>
-                Get Nickname
-            </button>
-            <button value='Get Room Name' onClick={handleGetRoomName}>
-                Get Room Name
-            </button>
+            <Button variant="contained"
+                    value='Get Nickname'
+                    color="primary"
+                    style={buttonStyle}
+                    onClick={handleGetNickname}>
+                <b>Get Nickname</b>
+            </Button>
+
+            <Button variant="contained"
+                    value='Get Room Name' 
+                    color="primary"
+                    style={buttonStyle}
+                    onClick={handleGetRoomName}>
+                <b>Get Room Name</b>
+            </Button>
 
             <br /><br />
-            
+
             {
                 videoId ? <YTPlayer id={videoId} />
                 :
