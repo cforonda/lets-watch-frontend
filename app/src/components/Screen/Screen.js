@@ -28,7 +28,7 @@ export default function Screen( { routerProps }) {
     useEffect(() => {
         
         setInterval(() => {
-            socket.emit('getNumClients');
+            socket.emit('getNumClients', socketRoom);
         }, 500);
 
         socket.on('updateClients', data => {
