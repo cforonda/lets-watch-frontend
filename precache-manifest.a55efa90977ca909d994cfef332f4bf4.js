@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9371edd3fd0b3ce32eed320632b928f4",
+    "revision": "01c69b463f953fbbd881b3966a2e1966",
     "url": "/lets-watch-frontend/index.html"
   },
   {
-    "revision": "4bafafde4d694dd2c5be",
+    "revision": "dd4feb373ae3e5197236",
     "url": "/lets-watch-frontend/static/css/main.3e0b3e78.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/lets-watch-frontend/static/js/2.611dd164.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4bafafde4d694dd2c5be",
-    "url": "/lets-watch-frontend/static/js/main.103ef4b5.chunk.js"
+    "revision": "dd4feb373ae3e5197236",
+    "url": "/lets-watch-frontend/static/js/main.6c595e03.chunk.js"
   },
   {
     "revision": "92128a23f68e94cee9ce",
