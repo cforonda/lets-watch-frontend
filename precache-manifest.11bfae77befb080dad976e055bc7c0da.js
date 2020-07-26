@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "107635e9bdd2634b2de691da4210afe6",
+    "revision": "0103230f30a237508b9ff5d055d362f7",
     "url": "/lets-watch-frontend/index.html"
   },
   {
-    "revision": "1175576fdab82100e144",
+    "revision": "940dfdcd70980c3e4f4c",
     "url": "/lets-watch-frontend/static/css/main.3e0b3e78.chunk.css"
   },
   {
-    "revision": "c94435f1da818dcde419",
-    "url": "/lets-watch-frontend/static/js/2.a654d7c2.chunk.js"
+    "revision": "427c2fc2c35c632cca29",
+    "url": "/lets-watch-frontend/static/js/2.97366d92.chunk.js"
   },
   {
     "revision": "3be25bf51018a491ef7f73dfd2dd74c4",
-    "url": "/lets-watch-frontend/static/js/2.a654d7c2.chunk.js.LICENSE.txt"
+    "url": "/lets-watch-frontend/static/js/2.97366d92.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1175576fdab82100e144",
-    "url": "/lets-watch-frontend/static/js/main.6a75030b.chunk.js"
+    "revision": "940dfdcd70980c3e4f4c",
+    "url": "/lets-watch-frontend/static/js/main.950587aa.chunk.js"
   },
   {
     "revision": "92128a23f68e94cee9ce",
