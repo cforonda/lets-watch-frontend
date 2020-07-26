@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/lets-watch-frontend/static/css/main.3e0b3e78.chunk.css",
-    "main.js": "/lets-watch-frontend/static/js/main.e96ab45c.chunk.js",
-    "main.js.map": "/lets-watch-frontend/static/js/main.e96ab45c.chunk.js.map",
+    "main.js": "/lets-watch-frontend/static/js/main.103ef4b5.chunk.js",
+    "main.js.map": "/lets-watch-frontend/static/js/main.103ef4b5.chunk.js.map",
     "runtime-main.js": "/lets-watch-frontend/static/js/runtime-main.acdfff8d.js",
     "runtime-main.js.map": "/lets-watch-frontend/static/js/runtime-main.acdfff8d.js.map",
-    "static/js/2.23dff77c.chunk.js": "/lets-watch-frontend/static/js/2.23dff77c.chunk.js",
-    "static/js/2.23dff77c.chunk.js.map": "/lets-watch-frontend/static/js/2.23dff77c.chunk.js.map",
+    "static/js/2.611dd164.chunk.js": "/lets-watch-frontend/static/js/2.611dd164.chunk.js",
+    "static/js/2.611dd164.chunk.js.map": "/lets-watch-frontend/static/js/2.611dd164.chunk.js.map",
     "index.html": "/lets-watch-frontend/index.html",
-    "precache-manifest.5ac260f3103ff71d4e912cf8dc247cea.js": "/lets-watch-frontend/precache-manifest.5ac260f3103ff71d4e912cf8dc247cea.js",
+    "precache-manifest.34f4c36566175a7299c48d866beede50.js": "/lets-watch-frontend/precache-manifest.34f4c36566175a7299c48d866beede50.js",
     "service-worker.js": "/lets-watch-frontend/service-worker.js",
     "static/css/main.3e0b3e78.chunk.css.map": "/lets-watch-frontend/static/css/main.3e0b3e78.chunk.css.map",
-    "static/js/2.23dff77c.chunk.js.LICENSE.txt": "/lets-watch-frontend/static/js/2.23dff77c.chunk.js.LICENSE.txt"
+    "static/js/2.611dd164.chunk.js.LICENSE.txt": "/lets-watch-frontend/static/js/2.611dd164.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.acdfff8d.js",
-    "static/js/2.23dff77c.chunk.js",
+    "static/js/2.611dd164.chunk.js",
     "static/css/main.3e0b3e78.chunk.css",
-    "static/js/main.e96ab45c.chunk.js"
+    "static/js/main.103ef4b5.chunk.js"
   ]
 }
