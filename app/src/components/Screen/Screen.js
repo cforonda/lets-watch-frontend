@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import socketIOClient from 'socket.io-client';
-import YTPlayer from '../YTPlayer/';
+import YouTubePlayer from '../YouTubePlayer/';
 import Form from '../Form/';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -94,7 +94,7 @@ export default function Screen( { routerProps }) {
             <br /><br />
 
             {
-                videoId ? <YTPlayer id={videoId} />
+                videoId ? <YouTubePlayer id={videoId} />
                 :
                 null
             }

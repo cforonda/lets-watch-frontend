@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 // Code pulled from: https://stackoverflow.com/questions/54017100/how-to-integrate-youtube-iframe-api-in-reactjs-solution
-class YTPlayer extends React.PureComponent {
+class YouTubePlayer extends React.PureComponent {
     static propTypes = {
         id: PropTypes.string.isRequired,
     };
@@ -50,4 +50,4 @@ class YTPlayer extends React.PureComponent {
     };
 }
 
-export default YTPlayer;
+export default YouTubePlayer;
