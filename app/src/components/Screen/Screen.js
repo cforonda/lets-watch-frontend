@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import socketIOClient from 'socket.io-client';
 import YTPlayer from '../YTPlayer/';
 import Form from '../Form/';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import '../../assets/Screen/Screen.css';
@@ -63,15 +64,19 @@ export default function Screen( { routerProps }) {
             <Form callback={youtubeVideoCallback} />
             <br />
             
-            <button value='Get Nickname' onClick={handleGetNickname}>
+            <Button variant="contained"
+                    value='Get Nickname' 
+                    onClick={handleGetNickname}>
                 Get Nickname
-            </button>
-            <button value='Get Room Name' onClick={handleGetRoomName}>
+            </Button>
+            <Button variant="contained"
+                    value='Get Room Name' 
+                    onClick={handleGetRoomName}>
                 Get Room Name
-            </button>
+            </Button>
 
             <br /><br />
-            
+
             {
                 videoId ? <YTPlayer id={videoId} />
                 :
