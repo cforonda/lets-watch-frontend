@@ -11,8 +11,8 @@ export default function Footer() {
         root: {
             background: "radial-gradient(circle, rgba(0,151,255,1) 0%, rgba(32,163,254,1) 100%)",
         },
-        text: {
-            marginLeft: theme.spacing(85)
+        appbar: {
+            alignItems: "center"
         }
         }))
 
@@ -21,9 +21,9 @@ export default function Footer() {
     return (
         <div className={classes.root}>
             <footer>
-            <AppBar position="static">
+            <AppBar position="static" className={classes.appbar}>
                 <Toolbar>
-                    <Typography variant="subtitle2" className={classes.text}>
+                    <Typography>
                         Let's Watch &copy; {new Date().getFullYear()} - Created by Stephen White &amp; Champ Foronda
                     </Typography>
                 </Toolbar>
