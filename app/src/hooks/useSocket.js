@@ -15,9 +15,14 @@ export default function SocketProvider({ children }) {
     const [socketRoom, setSocketRoom] = useState('community');
     const [socketNickname, setSocketNickname] = useState();
 
-    const initializeClient = () => {
+    useEffect(() => {
         setSocket(socketIOClient(API_ENDPOINT));
-    }
+    }, []);
+
+    // const initializeClient = () => {
+    //     setSocket(socketIOClient(API_ENDPOINT));
+    // }
+
 
     const updateSocket = socketIOClient => setSocket(socketIOClient);
 
@@ -38,7 +43,7 @@ export default function SocketProvider({ children }) {
     console.log(`Socket Connection: ${API_ENDPOINT}`); // 
 
     return (
-        <SocketContext.Provider value={{ initializeClient, socket, updateSocket, socketRoom, updateSocketRoom, socketNickname, updateSocketNickname}}>
+        <SocketContext.Provider value={{ socket, updateSocket, socketRoom, updateSocketRoom, socketNickname, updateSocketNickname}}>
             { children }
         </SocketContext.Provider>
     )

@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
-            marginTop: theme.spacing(30),
+            marginTop: theme.spacing(20),
             width: '25ch',
       },
     },
@@ -27,13 +27,12 @@ export default function SelectScreen() {
     const classes = useStyles();
     const [username, setUsername] = useState("");
     const [room, setRoom] = useState("community");
-    const {initializeClient, socketNickname, updateSocketNickname, socketRoom, updateSocketRoom} = useSocket();
+    const { socket, socketNickname, updateSocketNickname, socketRoom, updateSocketRoom} = useSocket();
 
     useEffect(() => {
         console.log('Socket Nickname: ', socketNickname);
         console.log('Socket Room: ', socketRoom);
-    }, [socketNickname, socketRoom])
-
+    }, [socketNickname, socketRoom]);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -41,7 +40,7 @@ export default function SelectScreen() {
         updateSocketRoom(room);
         setUsername('');
         setRoom('');
-        initializeClient();
+        socket.emit('join-room', socketRoom);
         history.push("/room");
     }
 
@@ -54,7 +53,7 @@ export default function SelectScreen() {
                 <br />
             </div>
              <Button className={classes.button} variant="contained" color="primary" 
-                    type='submit' onClick={handleSubmit} disabled={!(username && room)}>
+                    type='submit' onClick={handleSubmit.bind(this)} disabled={!(username && room)}>
                 Enter Room
             </Button>
         </form>

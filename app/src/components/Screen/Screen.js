@@ -26,6 +26,7 @@ export default function Screen( { routerProps }) {
 
     useEffect(() => {
 
+
         console.log('Socket Nickname: ', socketNickname);
         console.log('Socket Room: ', socketRoom);
         
@@ -44,6 +45,10 @@ export default function Screen( { routerProps }) {
             socket.on('user-joined-room', response => {
                 console.log(response.message);
             });
+
+            socket.on('user-left-room', response => {
+                console.log(response.message);
+            })
     
             socket.on('user-joined-room-failed', response => {
                 console.log(response.message);
@@ -67,6 +72,7 @@ export default function Screen( { routerProps }) {
     const handleGetRoomName = () => {
         console.log(`Hello ${socketNickname}, you are currently in room: ${socketRoom}`);
     }
+
 
     return (
         <div className='screen'>
