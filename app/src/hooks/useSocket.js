@@ -11,31 +11,34 @@ const SocketContext = createContext();
     loop of socket connections.
 */
 export default function SocketProvider({ children }) {
-    const [socket, setSocket] = useState(socketIOClient(API_ENDPOINT));
+    const [socket, setSocket] = useState();
     const [socketRoom, setSocketRoom] = useState('community');
-    const [socketNickname, setSocketNickname] = useState(uuidv4());
+    const [socketNickname, setSocketNickname] = useState();
 
-    useEffect(() => {
-        socket.emit('update-nickname', socketNickname);
-        socket.emit('join-room', socketRoom);
-    })
+    const initializeClient = () => {
+        setSocket(socketIOClient(API_ENDPOINT));
+    }
 
     const updateSocket = socketIOClient => setSocket(socketIOClient);
 
     const updateSocketRoom = socketRoom => {
         setSocketRoom(socketRoom);
-        socket.emit('join-room', socketRoom );
+        if(socket) {
+            socket.emit('join-room', socketRoom );
+        }
     }
 
     const updateSocketNickname = socketNickname => {
         setSocketNickname(socketNickname);
-        socket.emit('update-nickname', socketNickname );
+        if(socket) {
+            socket.emit('update-nickname', socketNickname );
+        }
     }
 
     console.log(`Socket Connection: ${API_ENDPOINT}`); // 
 
     return (
-        <SocketContext.Provider value={{ socket, updateSocket, socketRoom, updateSocketRoom, socketNickname, updateSocketNickname}}>
+        <SocketContext.Provider value={{ initializeClient, socket, updateSocket, socketRoom, updateSocketRoom, socketNickname, updateSocketNickname}}>
             { children }
         </SocketContext.Provider>
     )

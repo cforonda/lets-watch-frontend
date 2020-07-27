@@ -11,9 +11,9 @@ import SocketProvider from './hooks/useSocket';
 ReactDOM.render(
     <SocketProvider>
         <Router basename={process.env.PUBLIC_URL}>
-        <Header />
-        <App />
-        <Footer />
+            <Header />
+            <App />
+            <Footer />
         </Router>
     </SocketProvider>
     , document.getElementById('root'));

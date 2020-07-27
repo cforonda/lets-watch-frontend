@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import socketIOClient from 'socket.io-client';
 import YTPlayer from '../YTPlayer/';
 import Form from '../Form/';
 import Button from '@material-ui/core/Button';
@@ -26,25 +25,30 @@ export default function Screen( { routerProps }) {
     }
 
     useEffect(() => {
+
+        console.log('Socket Nickname: ', socketNickname);
+        console.log('Socket Room: ', socketRoom);
         
-        setInterval(() => {
-            socket.emit('getNumClients', socketRoom);
-        }, 500);
-
-        socket.on('updateClients', data => {
-            if(data.message) {
-                console.log(data.message);
-            }
-            setNumClients(data.numClients);
-        })
-
-        socket.on('user-joined-room', response => {
-            console.log(response.message);
-        });
-
-        socket.on('user-joined-room-failed', response => {
-            console.log(response.message);
-        });
+        if(socket) {
+            setInterval(() => {
+                socket.emit('getNumClients', socketRoom);
+            }, 500);
+    
+            socket.on('updateClients', data => {
+                if(data.message) {
+                    console.log(data.message);
+                }
+                setNumClients(data.numClients);
+            })
+    
+            socket.on('user-joined-room', response => {
+                console.log(response.message);
+            });
+    
+            socket.on('user-joined-room-failed', response => {
+                console.log(response.message);
+            });
+        }
         
     }, []);
 
