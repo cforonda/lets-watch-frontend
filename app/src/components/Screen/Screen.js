@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import YTPlayer from '../YTPlayer/';
+import YouTubePlayer from '../YouTubePlayer/';
 import Form from '../Form/';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -70,16 +70,14 @@ export default function Screen( { routerProps }) {
 
     return (
         <div className='screen'>
-            { numClients ? 
-                <Typography variant="h6">{numClients} users are currently watching</Typography> 
-                :
-                <Typography variant="h6">1 user is currently watching</Typography> }
-
-            <br />
+            <Typography variant="h6">Paste a video</Typography>
             <Form callback={youtubeVideoCallback} />
             <br />
-            
-            <Button variant="contained"
+            { numClients ? 
+                <Typography variant="subtitle1"><b>{numClients} users</b> are currently watching</Typography> 
+                :
+                <Typography variant="subtitle1"><b>1 user</b> is currently watching</Typography> }
+            {/* <Button variant="contained"
                     value='Get Nickname'
                     color="primary"
                     style={buttonStyle}
@@ -93,12 +91,12 @@ export default function Screen( { routerProps }) {
                     style={buttonStyle}
                     onClick={handleGetRoomName}>
                 <b>Get Room Name</b>
-            </Button>
+            </Button> */}
 
             <br /><br />
 
             {
-                videoId ? <YTPlayer id={videoId} />
+                videoId ? <YouTubePlayer id={videoId} />
                 :
                 null
             }
