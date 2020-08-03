@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import YouTubePlayer from '../YouTubePlayer/';
+import YoutubePlayer from '../YouTubePlayer';
 import Form from '../Form/';
 import Typography from '@material-ui/core/Typography';
 
@@ -12,12 +12,10 @@ export default function Screen( { routerProps }) {
     const [numClients, setNumClients] = useState();
     const [videoId, setVideoId] = useState("");
 
-    const updateVideoId = text => setVideoId(text);
-    const { socket, socketRoom } = useSocket();
+    const { socket } = useSocket();
 
 
     useEffect(() => {
-        console.log('Socket Room: ', socketRoom);
         
         if(socket) {
     
@@ -27,6 +25,7 @@ export default function Screen( { routerProps }) {
                 }
                 setNumClients(response.numClients);
             })
+
             socket.on('welcome-new-user-to-room', response => {
                 console.log(response.message);
             });
@@ -47,7 +46,7 @@ export default function Screen( { routerProps }) {
     });
 
     const youtubeVideoCallback = (response) => {
-        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+        const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
 
         if(response !== "") {
             setVideoId(response.match(regExp)[7]);
@@ -56,6 +55,14 @@ export default function Screen( { routerProps }) {
 
     return (
         <div className='screen'>
+             {
+                videoId ? 
+                <div>
+                    <YoutubePlayer id={videoId} />
+                </div>
+                :
+                null
+            }
             <Typography variant="h6">Paste a video</Typography>
             <Form callback={youtubeVideoCallback} />
             <br />
@@ -65,12 +72,6 @@ export default function Screen( { routerProps }) {
                 <Typography variant="subtitle1"><b>1 user</b> is currently watching</Typography> }
         
             <br /><br />
-
-            {
-                videoId ? <YouTubePlayer id={videoId} />
-                :
-                null
-            }
         </div>
     )
 }
