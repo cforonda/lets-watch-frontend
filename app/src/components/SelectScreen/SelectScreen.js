@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useSocket} from '../../hooks/useSocket';
+import {useClientDetails} from '../../hooks/useClientDetails';
 import SelectUsername from '../SelectUsername';
 import SelectRoom from '../SelectRoom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -27,20 +28,16 @@ export default function SelectScreen() {
     const classes = useStyles();
     const [username, setUsername] = useState("");
     const [room, setRoom] = useState("community");
-    const { socket, socketNickname, updateSocketNickname, socketRoom, updateSocketRoom} = useSocket();
-
-    useEffect(() => {
-        console.log('Socket Nickname: ', socketNickname);
-        console.log('Socket Room: ', socketRoom);
-    }, [socketNickname, socketRoom]);
+    const { socket } = useSocket();
+    const { updateClientUsername, updateClientRoom } = useClientDetails();
 
     const handleSubmit = event => {
         event.preventDefault();
-        updateSocketNickname(username);
-        updateSocketRoom(room);
+        socket.emit('update-user', {user: username, room: room});
+        updateClientRoom(room);
+        updateClientUsername(username);
         setUsername('');
         setRoom('');
-        socket.emit('join-room', socketRoom);
         history.push("/room");
     }
 

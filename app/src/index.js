@@ -7,15 +7,18 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SocketProvider from './hooks/useSocket';
+import ClientDetailsProvider from './hooks/useClientDetails';
 
 ReactDOM.render(
-    <SocketProvider>
-        <Router basename={process.env.PUBLIC_URL}>
-            <Header />
-            <App />
-            <Footer />
-        </Router>
-    </SocketProvider>
+    <ClientDetailsProvider>
+        <SocketProvider>
+            <Router basename={process.env.PUBLIC_URL}>
+                <Header />
+                <App />
+                <Footer />
+            </Router>
+        </SocketProvider>
+    </ClientDetailsProvider>
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

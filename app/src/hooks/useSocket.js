@@ -1,6 +1,5 @@
 import React, { useState, useContext, createContext, useEffect } from 'react';
 import socketIOClient from 'socket.io-client';
-import { v4 as uuidv4 } from 'uuid';
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || "https://lets-watch-backend.herokuapp.com/";
 const SocketContext = createContext();
@@ -12,38 +11,18 @@ const SocketContext = createContext();
 */
 export default function SocketProvider({ children }) {
     const [socket, setSocket] = useState();
-    const [socketRoom, setSocketRoom] = useState('community');
-    const [socketNickname, setSocketNickname] = useState();
 
     useEffect(() => {
         setSocket(socketIOClient(API_ENDPOINT));
     }, []);
 
-    // const initializeClient = () => {
-    //     setSocket(socketIOClient(API_ENDPOINT));
-    // }
-
 
     const updateSocket = socketIOClient => setSocket(socketIOClient);
-
-    const updateSocketRoom = socketRoom => {
-        setSocketRoom(socketRoom);
-        if(socket) {
-            socket.emit('join-room', socketRoom );
-        }
-    }
-
-    const updateSocketNickname = socketNickname => {
-        setSocketNickname(socketNickname);
-        if(socket) {
-            socket.emit('update-nickname', socketNickname );
-        }
-    }
 
     console.log(`Socket Connection: ${API_ENDPOINT}`); // 
 
     return (
-        <SocketContext.Provider value={{ socket, updateSocket, socketRoom, updateSocketRoom, socketNickname, updateSocketNickname}}>
+        <SocketContext.Provider value={{ socket, updateSocket }}>
             { children }
         </SocketContext.Provider>
     )
