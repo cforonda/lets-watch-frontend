@@ -1,3 +1,3 @@
-import YouTubePlayer from "./YouTubePlayer";
+import YoutubePlayer from './YoutubePlayer';
 
-export default YouTubePlayer;
+export default YoutubePlayer;

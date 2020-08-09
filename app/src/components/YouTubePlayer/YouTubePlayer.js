@@ -1,40 +1,44 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import Youtube from 'react-youtube';
+import { useSocket } from '../../hooks/useSocket';
 
-export default function YoutubePlayerNew({ id }) {
-    useEffect(() => {
-        if (!window.YT) { // If not, load the script asynchronously
-            const tag = document.createElement('script');
-            tag.src = 'https://www.youtube.com/iframe_api';
-
-            // onYouTubeIframeAPIReady will load the video after the script is loaded
-            window.onYouTubeIframeAPIReady = loadVideo;
-
-            const firstScriptTag = document.getElementsByTagName('script')[0];
-
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        } else { // If script is already there, load the video directly
-            loadVideo();
+export default function YoutubePlayer({videoId}) {
+    const {socket} = useSocket();
+    const playerOptions = {
+        height: '390',
+        width: '640',
+        playerVars: {
+          // https://developers.google.com/youtube/player_parameters
+          autoplay: 1,
         }
-    })
-
-    const loadVideo = () => {
-        // the Player object is created uniquely based on the id in props
-        const player = new window.YT.Player(`youtube-player-${id}`, {
-            videoId: id,
-            events: {
-                onReady: onPlayerReady,
-            },
-        });
     };
 
-    const onPlayerReady = event => {
-        event.target.playVideo();
-    };
+    const getCurrentTime = event =>  event.target.getCurrentTime();
+
+    const handleVideoOnReady = event => {
+        event.target.pauseVideo();
+    }
+
+    const handleVideoPlay = event => {
+        console.log('PLAY', event.target);
+        console.log(getCurrentTime(event));
+    }
+
+    const handleVideoPause = event => {
+        console.log('PAUSE');
+        console.log('Current Time:', getCurrentTime(event));
+    }
+
+    const handleVideoEnd = event => {
+        console.log('END');
+    }
 
     return (
         <div>
-            <div id={`youtube-player-${id}`} />
+            <Youtube videoId={videoId} opts={playerOptions} onReady={handleVideoOnReady} 
+                        onPlay={handleVideoPlay} onPause={handleVideoPause} 
+                        onEnd={handleVideoEnd}
+            />
         </div>
-    );
+    )
 }

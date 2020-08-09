@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import YoutubePlayer from '../YouTubePlayer';
+import YoutubePlayer from '../YoutubePlayer';
 import Form from '../Form/';
 import Typography from '@material-ui/core/Typography';
 
@@ -48,18 +48,17 @@ export default function Screen( { routerProps }) {
     const youtubeVideoCallback = (response) => {
         const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
 
-        if(response !== "") {
+        if(response) {
             setVideoId(response.match(regExp)[7]);
         }
     };
 
+
     return (
         <div className='screen'>
-             {
+              {
                 videoId ? 
-                <div>
-                    <YoutubePlayer id={videoId} />
-                </div>
+                <YoutubePlayer videoId={videoId} />
                 :
                 null
             }
