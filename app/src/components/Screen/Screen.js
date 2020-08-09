@@ -11,6 +11,11 @@ export default function Screen( { routerProps }) {
     // setup hooks
     const [numClients, setNumClients] = useState();
     const [videoId, setVideoId] = useState("");
+    const [videoQueue, updateVideoQueue] = useState([]);
+
+    const addVideoToQueue = videoId => {
+        socket.emit('add-video-to-server-queue', videoId);
+    };
 
     const { socket } = useSocket();
 
@@ -41,15 +46,24 @@ export default function Screen( { routerProps }) {
             socket.on('user-joined-room-failed', response => {
                 console.log(response.message);
             });
+
+            socket.on('update-client-video', data => {
+                setVideoId(data.videoId);
+            })
         }
-        
     });
 
     const youtubeVideoCallback = (response) => {
         const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
 
         if(response) {
-            setVideoId(response.match(regExp)[7]);
+            try {
+                const videoId = response.match(regExp)[7];
+                addVideoToQueue(videoId);
+            } catch (error) {
+                console.log("IMPROPER VIDEO FORMAT");
+                // TODO: Handle notifying the sers
+            }
         }
     };
 
@@ -58,7 +72,7 @@ export default function Screen( { routerProps }) {
         <div className='screen'>
               {
                 videoId ? 
-                <YoutubePlayer videoId={videoId} />
+                <YoutubePlayer videoId={videoId} socket={socket} />
                 :
                 null
             }
